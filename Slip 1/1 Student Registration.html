@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <script>
+            function FORM() {
+                var fname =
+                    document.forms.RegForm.FirstName.value;
+                var lname  =
+                    document.forms.RegForm.LastName.value;
+                var email =
+                    document.forms.RegForm.EMail.value;
+                var age =
+                    document.forms.RegForm.Age.value;
+                var password =
+                    document.forms.RegForm.Password.value;
+                var address =
+                    document.forms.RegForm.Address.value;
+                var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
+                var regName = /\d+$/g;                                    // Javascript reGex for Name validation
+                age = parseInt(age, 10);
+
+               if (isNaN(age) || age < 18 || age > 50)
+               { 
+                     alert("The age must be a number between 18 to 50");
+                     return false;
+               }
+ 
+                if (fname == "" || regName.test(fname)) {
+                    alert("Please enter your first name properly.");
+                    fname.focus();
+                    return false;
+                }
+                if (lname == "" || regName.test(lname)) {
+                    alert("Please enter your last name properly.");
+                    lname.focus();
+                    return false;
+                }
+
+ 
+                if (address == "") {
+                    alert("Please enter your address.");
+                    address.focus();
+                    return false;
+                }
+                 
+                if (email == "" || !regEmail.test(email)) {
+                    alert("Please enter a valid e-mail address.");
+                    email.focus();
+                    return false;
+                }
+                  
+                if (password == "") {
+                    alert("Please enter your password");
+                    password.focus();
+                    return false;
+                }
+ 
+                if(password.length <6){
+                    alert("Password should be atleast 6 character long");
+                    password.focus();
+                    return false;
+ 
+                }
+                return true;
+            }
+        </script>
+ 
+        <style>
+            div {
+                box-sizing: border-box;
+                width: 100%;
+                border: 100px solid black;
+                float: left;
+                align-content: center;
+                align-items: center;
+            }
+ 
+            form {
+                margin: 0 auto;
+                width: 600px;
+                background-color:yellow ;
+                text-align : center;
+                border-style : solid;
+                border-color : black;
+            }
+        </style>
+    </head>
+ 
+    <body>
+        <h1 style="text-align: center;">STUDENT REGISTRATION FORM</h1>
+        <form name="RegForm" onsubmit="return FORM()" method="post">
+             
+<p>FirstName: <input type="text"
+                            size="20" name="FirstName" /></p>
+ 
+            <br/>
+<p>LastName: <input type="text"
+                            size="20" name="LastName" /></p>
+ 
+            <br />
+<p>Age: <input type="text"
+                        size="20" name="Age" /></p>
+ 
+            <br />
+             
+<p>Address: <input type="text"
+                            size="20" name="Address" />
+        </p>
+ 
+            <br />
+             
+<p>E-mail Address: <input type="text"
+                            size="20" name="EMail" /></p>
+ 
+            <br />
+             
+<p>Password: <input type="password"
+                        size="20" name="Password" /></p>
+ 
+            <br />
+            <br />
+             
+<p>
+                <input type="submit"
+                    value="submit" name="Submit" />
+                <input type="reset"
+                    value="Reset" name="Reset" />
+            </p>
+ 
+        </form>
+    </body>
+</html>
