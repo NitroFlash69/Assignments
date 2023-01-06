@@ -1,0 +1,38 @@
+<html>
+<script>
+function validate()
+{
+  var x;
+  n1=document.getElementById("fn").value; 
+  n2=document.getElementById("ln").value; 
+  x=document.getElementById("numb").value; 
+
+  var letters=/^[A-Za-z]+$/;
+  if((!n1.match(letters))||(!n2.match(letters)))
+  {
+    alert("Invalid Username");
+  }
+  else if(isNaN(x)||x<18||x>50)
+  {
+    alert("Invalid Age");
+  }
+  else
+  {
+    alert(Form Submitted");
+  }
+}
+</script>
+
+<body>
+<h2>Student Registration Form</h2>
+First Name:<input type="text" id="fn"><br>
+<br>
+Last Name:<input type="text" id="ln"><br>
+<br>
+Age:<input type="text" id="numb"><br>
+<br>
+<button type="Submit" onclick="validate()">Submit</button>
+</body>
+</html>
+
+
